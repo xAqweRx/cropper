@@ -4,6 +4,8 @@ package com.example.croppersample;
 import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -22,6 +24,7 @@ import android.widget.TextView;
 import android.widget.ToggleButton;
 
 import com.edmodo.cropper.CropImageView;
+import com.edmodo.cropper.util.ImageHelper;
 
 public class MainActivity extends Activity {
 
@@ -71,6 +74,8 @@ public class MainActivity extends Activity {
         final SeekBar aspectRatioYSeek = (SeekBar) findViewById(R.id.aspectRatioYSeek);
         final ToggleButton fixedAspectRatioToggle = (ToggleButton) findViewById(R.id.fixedAspectRatioToggle);
         Spinner showGuidelinesSpin = (Spinner) findViewById(R.id.showGuidelinesSpin);
+
+        cropImageView.setImageBitmap( ImageHelper.scaledDrawable( this, R.drawable.castle ) );
         
         // Sets sliders to be disabled until fixedAspectRatio is set
         aspectRatioXSeek.setEnabled(false);
